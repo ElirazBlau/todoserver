@@ -24,8 +24,8 @@ async function updateTodoById(id,data){
     return await todoModel.updateOne({_id:id},data)
     }
 
-async function updaeTodoDone(id){
-    return await todoModel.updateOne({_id:id}, {isDone:true})
+async function updaeTodoDone(id, data){
+    return await todoModel.updateOne({ _id: id }, data)
 }
 
 async function readAllDone(filter){
