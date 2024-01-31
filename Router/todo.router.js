@@ -38,7 +38,7 @@ todoRouter.delete('/:id', async (req, res)=>{
 
 todoRouter.put('/:id', async (req, res)=>{
     try {
-       res.send(await todoService.updateDone(req.params.id))
+       res.send(await todoService.updateDone(req.params.id, req.body))
     } catch (err) {
        res.status(400).send(err)
     }

@@ -20,8 +20,8 @@ async function deleteTodoById(id){
     return read
 }
 
-async function updateDone(id){
-    let read =  await todoController.updaeTodoDone({_id:id})
+async function updateDone(id, data) {
+    let read = await todoController.updaeTodoDone({ _id: id }, data)
     return read
 }
 
