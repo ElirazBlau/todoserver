@@ -28,9 +28,25 @@ todoRouter.post('/', async (req, res)=>{
     }
 })
 
+todoRouter.delete('/', async (req, res)=> {
+   try {
+       res.send(await todoService.deleteAllToDo())
+    } catch (err) {
+       res.status(400).send(err)
+    }
+})
+
 todoRouter.delete('/:id', async (req, res)=>{
     try {
        res.send(await todoService.deleteTodoById(req.params.id))
+    } catch (err) {
+       res.status(400).send(err)
+    }
+})
+
+todoRouter.put('/', async (req,res)=> {
+   try {
+       res.send(await todoService.updateAllDone())
     } catch (err) {
        res.status(400).send(err)
     }

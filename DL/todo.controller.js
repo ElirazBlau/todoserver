@@ -16,6 +16,9 @@ async function deleteTodo(id){
     return await todoModel.findByIdAndUpdate(id, {isActive: false})
 }
 
+async function deleteAll(){
+    return await todoModel.updateMany({isActive: false})
+}
 
 async function updateTodoById(id,data){
     return await todoModel.updateOne({_id:id},data)
@@ -29,4 +32,8 @@ async function readAllDone(filter){
     return await todoModel.find(filter, {isDone:true})
 }
 
-module.exports = {createNew,readAllActive, readAllDone, readOne, updateTodoById, deleteTodo, updaeTodoDone}
+async function updateDoneAll(){
+    return await todoModel.updateMany({isDone:true})
+}
+
+module.exports = {updateDoneAll, createNew,readAllActive, readAllDone, readOne, updateTodoById, deleteTodo, updaeTodoDone, deleteAll}

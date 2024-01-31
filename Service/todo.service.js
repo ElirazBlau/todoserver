@@ -1,5 +1,5 @@
 const todoController = require('../DL/todo.controller')
-const {createNew,readAllActive, readAllDone, readOne, updateTodoById, deleteTodo} = todoController
+const {updateDoneAll, createNew,readAllActive, readAllDone, readOne, updateTodoById, deleteTodo, deleteAll} = todoController
 
 async function createTodo(data){
     return await todoController.createNew(data)
@@ -20,9 +20,19 @@ async function deleteTodoById(id){
     return read
 }
 
+async function deleteAllToDo(){
+    let read =  await todoController.deleteAll()
+    return read
+}
+
 async function updateDone(id){
     let read =  await todoController.updaeTodoDone({_id:id})
     return read
 }
 
-module.exports={createTodo, getAllTodos, getTodoById, deleteTodoById, updateDone}
+async function updateAllDone(){
+    let read =  await todoController.updateDoneAll()
+    return read
+}
+
+module.exports={updateAllDone, createTodo, getAllTodos, getTodoById, deleteTodoById, updateDone, deleteAllToDo}
