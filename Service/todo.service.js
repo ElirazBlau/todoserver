@@ -30,8 +30,8 @@ async function updateDone(id, data) {
     return read
 }
 
-async function updateAllDone(){
-    let read =  await todoController.updateDoneAll()
+async function updateAllDone(data){
+    let read =  await todoController.updateDoneAll(data)
     return read
 }
 

@@ -32,8 +32,8 @@ async function readAllDone(filter){
     return await todoModel.find(filter, {isDone:true})
 }
 
-async function updateDoneAll(){
-    return await todoModel.updateMany({isDone:true})
+async function updateDoneAll(data){
+    return await todoModel.updateMany(data)
 }
 
 module.exports = {updateDoneAll, createNew,readAllActive, readAllDone, readOne, updateTodoById, deleteTodo, updaeTodoDone, deleteAll}
