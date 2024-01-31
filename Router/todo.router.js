@@ -19,10 +19,10 @@ todoRouter.get('/:id', async (req, res)=>{
     }
 })
 
-todoRouter.post('/', (req, res)=>{
+todoRouter.post('/', async (req, res)=>{
     try {
-       res.send(todoService.createTodo(req.body))
-       res.status(201).send('ok')
+       res.send(await todoService.createTodo(req.body))
+      //  res.status(201).send('ok')
     } catch (err) {
        res.status(400).send(err)
     }
